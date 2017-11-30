@@ -1,0 +1,6 @@
+ignat_env
+*.pyc
+staticfiles
+.env
+.idea
+node_modules
