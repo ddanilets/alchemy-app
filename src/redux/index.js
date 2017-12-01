@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { rraReducer } from 'redux-remote-actions/lib/client';
-import applicationReducer from './application/reducer';
+import gameReducer from './game/reducer';
 
 export default combineReducers({
   routing: routerReducer,
-  application: applicationReducer,
+  game: gameReducer,
   remoteActions: rraReducer,
 });

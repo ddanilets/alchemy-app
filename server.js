@@ -14,16 +14,17 @@ import Html from './src/html/Html';
 
 const server = express();
 
-serverEnchancer(server);
-
+// serverEnchancer(server);
+console.log((`${__dirname}/build`));
 
 server.use('/build', express.static(`${__dirname}/build`));
+server.use('/ru/build', express.static(`${__dirname}/build`));
 server.use('/static', express.static(`${__dirname}/src/static`));
 
 server.use(bodyParser.json({ limit: '50mb' }));
 
 server.get('/', (req, res) => {
-    res.redirect('/ru/home', 302)
+  res.redirect('/ru/home', 302)
 });
 
 server.use((req, res) => {

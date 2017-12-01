@@ -15,7 +15,6 @@ const Application = () => {
   <Provider store={store} key="provider">
     <div>
       <Router history={history} routes={routes(store)} />
-      {process.env.NODE_ENV === 'development' ? <DevTools store={store} /> : null}
     </div>
   </Provider>);
 };

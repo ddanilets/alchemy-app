@@ -9,10 +9,12 @@ import DevTools from './DevTools';
 export default function configureStore(baseHistory, initialState = {}) {
   const reduxRouterMiddleware = routerMiddleware(baseHistory);
   const middleware = applyMiddleware(reduxRouterMiddleware, thunk, rraMiddleware /* logger */);
-  const store = createStore(reducer, initialState, compose(
-    middleware,
-    DevTools.instrument()
-  ));
+  let enhancer = middleware;
+  if (typeof window === 'object' && typeof window.devToolsExtension !== 'undefined') {
+    enhancer = compose(middleware, window.devToolsExtension());
+  }
+
+  const store = createStore(reducer, initialState, enhancer);
   const history = syncHistoryWithStore(baseHistory, store);
 
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)

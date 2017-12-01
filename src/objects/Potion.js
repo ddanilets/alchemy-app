@@ -1,11 +1,18 @@
+import Mechanic from './Mechanic';
+import Effect from './Effect';
+
 export default class Potion {
-  constructor(mechanic = null, power, recipe, name, color, effect = null) {
+  constructor(mechanic = null, power, name, color, effect = null) {
     this._mechanic = mechanic;
     this._power = power;
-    this._recipe = recipe;
     this._name = name;
     this._color = color;
     this._effect = effect;
+  }
+
+  static fromData(data) {
+    return new Potion(Mechanic.fromData(data.mechanic),
+      data.power, data.name, data.color, Effect.fromData(data.effect));
   }
 
   get mechanic() {
@@ -14,10 +21,6 @@ export default class Potion {
 
   get power() {
     return this._power;
-  }
-
-  get recipe() {
-    return this._recipe;
   }
 
   get name() {

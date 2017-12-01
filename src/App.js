@@ -6,7 +6,7 @@ class App extends React.PureComponent {
   render() {
     return (
       <div className="application">
-        Hey there!
+        {this.props.children}
       </div>
     );
   }
