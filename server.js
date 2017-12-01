@@ -19,7 +19,7 @@ console.log((`${__dirname}/build`));
 
 server.use('/build', express.static(`${__dirname}/build`));
 server.use('/ru/build', express.static(`${__dirname}/build`));
-server.use('/static', express.static(`${__dirname}/src/static`));
+server.use('/static', express.static(`${__dirname}/static`));
 
 server.use(bodyParser.json({ limit: '50mb' }));
 
