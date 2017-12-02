@@ -9,12 +9,12 @@ class PotionList {
         name: 'Аццкий фаербол',
         effects: [
           {
-            type: effectTypes.PURE_DMG,
+            getType: () => effectTypes.PURE_DMG,
             power: 10,
             target: targets.ENEMY,
           },
           {
-            type: effectTypes.HEAL,
+            getType: () => effectTypes.HEAL,
             power: 10,
             target: targets.SELF,
           },

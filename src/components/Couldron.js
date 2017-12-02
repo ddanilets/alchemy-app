@@ -60,7 +60,6 @@ class Couldron extends React.PureComponent {
 }
 
 export default connect((state) => {
-  console.log(state);
   return {
     data: state.game.couldron,
   };

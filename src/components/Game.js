@@ -4,8 +4,12 @@ import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import Sidebar from './Sidebar';
 import Hero from './Hero';
-class Game extends React.PureComponent {
+import { init } from '../redux/game/actions';
 
+class Game extends React.PureComponent {
+  componentDidMount() {
+    this.props.init();
+  }
   render() {
     const shouldMirror = this.props.enemy.id === this.props.self.id ? 'mirror' : '';
     return (
@@ -27,4 +31,4 @@ export default connect((state) => {
     enemy: state.game.enemy,
     self: state.game.self,
   };
-})(Game);
+}, { init })(Game);

@@ -6,14 +6,17 @@ class HpBar extends React.PureComponent {
   }
 
   render() {
-    return (
-      <div className="hp-bar">
-        {this.props.currentHp} HP
-        <div className="hp-column">
-          <div className="hp-column-inner" style={{ height: this.getHpHeight() }} />
+    if (this.props.currentHp) {
+      return (
+        <div className="hp-bar">
+          {this.props.currentHp} HP
+          <div className="hp-column">
+            <div className="hp-column-inner" style={{ height: this.getHpHeight() }} />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    return null;
   }
 }
 

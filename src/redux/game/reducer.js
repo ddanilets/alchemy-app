@@ -15,12 +15,15 @@ export default function (state = initialState, action) {
     case constants.DROP_INGRIDIENT: {
       return {
         ...state,
-        ingridients: newState.ingridients.filter((ingridient) => {
-          return ingridient.id !== payload;
-        }),
+        self: {
+          ...state.self,
+          ingridients: state.self.ingridients.filter((ingridient) => {
+            return ingridient.id !== payload;
+          }),
+        },
         couldron: {
           ...state.couldron,
-          contents: state.couldron.contents.concat(state.ingridients.filter((ingridient) => {
+          contents: state.couldron.contents.concat(state.self.ingridients.filter((ingridient) => {
             return ingridient.id === payload;
           })),
         },
@@ -48,6 +51,12 @@ export default function (state = initialState, action) {
           ...state.couldron,
           contents: [],
         },
+      };
+    }
+    case constants.GAME_INIT: {
+      return {
+        ...state,
+        ...payload,
       };
     }
     default: {

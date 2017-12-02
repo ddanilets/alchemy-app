@@ -50,6 +50,6 @@ export default connect((state) => {
   return {
     couldronType: state.game.couldron.name,
     potions: state.game.potions,
-    ingridients: state.game.ingridients,
+    ingridients: state.game.self.ingridients,
   };
 })(Sidebar);
