@@ -2,26 +2,31 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RecipeBook from './RecipeBook';
 import Couldron from './Couldron';
-import getBox from './Box';
-import { getPotionColor } from '../utils/utils';
+import Potion from './Potion';
+import Ingridient from './Ingridient';
+import Box from './Box';
 
 class Sidebar extends React.PureComponent {
-  static renderPotion(potion, key) {
-    const Box = getBox('potion');
-    return (
-      <Box key={key} className="potion" style={{ backgroundColor: getPotionColor(potion) }}>
-        {potion.name}
-      </Box>
-    );
+  static renderPotion(potion) {
+    return <Potion {...potion} />;
   }
 
-  static renderIngridient(ingridient, key) {
-    const Box = getBox('ingridient');
-    return (
-      <Box key={key} className={`ingridient ${ingridient.id}`}>
-        {ingridient.name}
-      </Box>
-    );
+  static renderIngridient(ingridient) {
+    return <Ingridient {...ingridient} />;
+  }
+
+  static renderEmptiness(count, renderer, target, className) {
+    return new Array(count).fill(null).map((_, id) => {
+      return target[id] || null;
+    }).map((el, key) => {
+      return (
+        <Box key={key} className={className}>
+          {
+            el && renderer(el)
+          }
+        </Box>
+      );
+    });
   }
 
   render() {
@@ -30,10 +35,11 @@ class Sidebar extends React.PureComponent {
         <RecipeBook />
         <Couldron couldronType={this.props.couldronType} />
         <div className="potion-list">
-          {this.props.potions.map(Sidebar.renderPotion)}
+          {Sidebar.renderEmptiness(4, Sidebar.renderPotion, this.props.potions, 'potion-wrapper')}
         </div>
         <div className="ingridient-list">
-          {this.props.ingridients.map(Sidebar.renderIngridient)}
+          {Sidebar.renderEmptiness(9,
+            Sidebar.renderIngridient, this.props.ingridients, 'ingridient-wrapper')}
         </div>
       </div>
     );

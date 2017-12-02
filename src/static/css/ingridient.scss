@@ -1,0 +1,32 @@
+.ingridient-list {
+  margin-top: 50px;
+  height: 270px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .ingridient-wrapper {
+    cursor: pointer;
+    height: 90px;
+    width: 90px;
+    border: 3px solid #0a593a;
+    margin: 3px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $cell-bg;
+    color: rgba(0, 0, 0, 0);
+    transition: color 600ms;
+
+    .ingridient {
+      .text {
+        user-select: none;
+      }
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.hero {
+  height: 50%;
+  width: 100%;
+  border-bottom: 2px solid black;
+
+  .hp-bar {
+    height: 100%;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .hp-column {
+      width: 70px;
+
+      border: 1px solid black;
+      height: 300px;
+      margin: 15px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .hp-column-inner {
+        width: 100%;
+        background-color: red;
+        border-radius: 15px;
+      }
+    }
+  }
+
+  .hero-image {
+    width: 90%;
+  }
+}

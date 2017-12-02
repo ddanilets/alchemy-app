@@ -8,10 +8,10 @@ const isLocal = process.env.NODE_ENV === 'development';
 function renderJsFiles() {
   const res = [];
   if (isLocal) {
-    res.push('../build/js/main.js');
+    res.push('/build/js/main.js');
   } else {
-    res.push('../build/js/vendor.bundle.js');
-    res.push('../build/js/main.min.js');
+    res.push('/build/js/vendor.bundle.js');
+    res.push('/build/js/main.min.js');
   }
   return res;
 }

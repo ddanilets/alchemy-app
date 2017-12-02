@@ -1,53 +1,40 @@
 export default {
-  potions: [
-    {
-      name: 'Potion of madness',
-    },
-    {
-      name: 'Potion of madness',
-    },
-    {
-      name: 'Potion of madness',
-    },
-    {
-      name: 'Potion of madness',
-    },
-  ],
+  potions: [],
   ingridients: [
     {
       id: 1,
       name: 'Water',
     },
     {
-      id: 1,
+      id: 2,
+      name: 'Fire',
+    },
+    {
+      id: 3,
+      name: 'Earth',
+    },
+    {
+      id: 4,
       name: 'Water',
     },
     {
-      id: 1,
+      id: 5,
       name: 'Water',
     },
     {
-      id: 1,
+      id: 6,
       name: 'Water',
     },
     {
-      id: 1,
+      id: 7,
       name: 'Water',
     },
     {
-      id: 1,
+      id: 8,
       name: 'Water',
     },
     {
-      id: 1,
-      name: 'Water',
-    },
-    {
-      id: 1,
-      name: 'Water',
-    },
-    {
-      id: 1,
+      id: 9,
       name: 'Water',
     },
   ],
@@ -61,6 +48,7 @@ export default {
   },
   couldron: {
     name: 'Classic',
+    contents: [],
   },
   recipes: [
     {
@@ -70,17 +58,19 @@ export default {
           name: 'Water',
         },
         {
-          id: 1,
-          name: 'Water',
+          id: 2,
+          name: 'Fire',
         },
         {
-          id: 1,
-          name: 'Water',
+          id: 3,
+          name: 'Earth',
         },
       ],
       potion: {
+        id: 1,
         name: 'Potion of madness',
       },
     },
   ],
+  bag: [],
 };

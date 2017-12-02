@@ -1,0 +1,21 @@
+.couldron-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .couldron-inline-wrapper {
+    flex: 100% 0 0;
+
+    .couldron {
+      height: 300px;
+      width: 300px;
+      background-color: black;
+      margin: 30px auto;
+    }
+  }
+
+
+  button{
+    margin-bottom: 20px;
+  }
+}
