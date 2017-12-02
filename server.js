@@ -4,7 +4,7 @@ import { match, RouterContext } from 'react-router';
 import bodyParser from 'body-parser';
 import createHistory from 'react-router/lib/createMemoryHistory';
 import { Provider } from 'react-redux';
-import { serverEnchancer } from 'redux-remote-actions/lib/server';
+import router from './server/backend';
 import React from 'react';
 import routes from './src/config/routes';
 import ReactDOM from 'react-dom/server';
@@ -22,6 +22,7 @@ server.use('/ru/build', express.static(`${__dirname}/build`));
 server.use('/static', express.static(`${__dirname}/static`));
 
 server.use(bodyParser.json({ limit: '50mb' }));
+server.use('/api', router);
 
 server.get('/', (req, res) => {
   res.redirect('/ru/home', 302)

@@ -50,7 +50,7 @@ export default {
   self: {
     maxHp: 100,
     currentHp: 63,
-    id: 'elf',
+    id: 'orc',
   },
   enemy: {
     maxHp: 120,
@@ -82,7 +82,8 @@ export default {
       ],
       potion: {
         id: 1,
-        name: 'Potion of madness',
+        name: 'Аццкий фаербол',
+        description: '10 Урона врагу, 10 хила себе, 10 из 10!',
       },
     },
     {

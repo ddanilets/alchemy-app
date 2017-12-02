@@ -1,0 +1,14 @@
+export const PURE_DMG = 'effect/pure';
+export const DOT_DMG = 'effect/dot';
+export const PDOT_DMG = 'effect/pdot';
+export const LIFESTEAL = 'effect/lifesteal';
+export const ARMOR_UP = 'effect/armor_up';
+export const BLOCK_INVENTORY = 'effect/block_inventory';
+export const BLOCK_COULDRON = 'effect/block_couldron';
+export const HEAL = 'effect/heal';
+export const BLOCK_POTION = 'effect/block_potion';
+export const ANTI_DOT_HEAL = 'effect/anti_dot_heal';
+export const ANTI_PDOT_HEAL = 'effect/anti_pdot_heal';
+export const REDICRECT = 'effect/redirect';
+export const CLEAR_COULDRON = 'effect/clear_couldron';
+export const MIRRORING = 'effect/mirroring';
