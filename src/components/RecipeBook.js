@@ -7,8 +7,10 @@ class RecipeBook extends React.PureComponent {
     super(props);
     this.state = {
       isBookOpened: false,
+      search: null,
     };
     this.toggleBook = ::this.toggleBook;
+    this.updateSearch = ::this.updateSearch;
   }
 
   toggleBook() {
@@ -17,13 +19,46 @@ class RecipeBook extends React.PureComponent {
     });
   }
 
-  static getIngridient(ingridient) {
-    return ingridient.name;
+  updateSearch(e) {
+    this.setState({ search: e.target.value });
   }
 
-  static renderIngridient(a, b) {
-    return `${a} + ${b}`;
+  getFilteredRecipes() {
+    if (this.state.search === '' || !this.state.search) {
+      return this.props.recipes;
+    }
+    return this.props.recipes.filter((recipe) => {
+      return recipe.potion.name.toLowerCase().includes(this.state.search.toLowerCase()) ||
+          recipe.ingridients.map((ingridient) => {
+            return ingridient.name;
+          }).reduce((a, b) => {
+            return `${a} ${b}`;
+          }).toLowerCase().includes(this.state.search.toLowerCase());
+    });
   }
+
+  static renderIngridient(ingridient, key, arr) {
+    if (key !== arr.length - 1) {
+      return (
+        <span className="ingridient" key={key}>
+          <span className="image-wrapper">
+            <span className={`${ingridient.imageName} image`} />
+          </span>
+          <span className="name">{ingridient.name}</span>
+          <span className="plus">+</span>
+        </span>
+      );
+    }
+    return (
+      <span className="ingridient" key={key}>
+        <span className="image-wrapper">
+          <span className={`${ingridient.imageName} image`} />
+        </span>
+        <span className="name">{ingridient.name}</span>
+        </span>
+    );
+  }
+
 
   static getPotion(potion) {
     return (
@@ -34,7 +69,7 @@ class RecipeBook extends React.PureComponent {
   }
 
   static getRecipeIngridients(recipe) {
-    return recipe.ingridients.map(RecipeBook.getIngridient).reduce(RecipeBook.renderIngridient);
+    return recipe.ingridients.map(RecipeBook.renderIngridient);
   }
 
   static renderRecipe(recipe, key) {
@@ -51,9 +86,20 @@ class RecipeBook extends React.PureComponent {
         <button onClick={this.toggleBook}>Recipes</button>
         {
           this.state.isBookOpened &&
-            <div className="recipes">
-              {this.props.recipes.map(RecipeBook.renderRecipe)}
+            <div>
+              <div className="recipes">
+                {this.getFilteredRecipes().map(RecipeBook.renderRecipe)}
+              </div>
+              <div className="recipes-bottom">
+                <div className="cross-icon" onClick={this.toggleBook} />
+              </div>
+              <div className="recipes-top">
+              <div className="input-wrapper">
+                <input type="text" onChange={this.updateSearch} />
+              </div>
+              </div>
             </div>
+
         }
       </div>
     );

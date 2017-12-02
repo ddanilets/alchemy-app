@@ -1,15 +1,18 @@
 .hero {
   height: 50%;
   width: 100%;
-  border-bottom: 2px solid black;
-
+  position: relative;
   .hp-bar {
+    z-index: 1;
     height: 100%;
     width: 100px;
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
 
     .hp-column {
       width: 70px;
@@ -31,6 +34,19 @@
   }
 
   .hero-image {
-    width: 90%;
+    width: 103%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+
+    &.mirror {
+      transform: rotateY(180deg);
+    }
+
+    &.elf {
+      background-image: url('/static/images/elf.png');
+    }
   }
 }

@@ -6,7 +6,7 @@ class Hero extends React.PureComponent {
     return (
       <div className="hero">
         <HpBar currentHp={this.props.hero.currentHp} maxHp={this.props.hero.maxHp} />
-        <div className={`hero-image ${this.props.id}`} />
+        <div className={`hero-image ${this.props.hero.id} ${this.props.mirror}`} />
       </div>
     );
   }

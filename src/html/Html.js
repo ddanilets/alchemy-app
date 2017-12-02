@@ -19,16 +19,20 @@ function renderJsFiles() {
 const Html = (props) => {
   const content = props.component ? ReactDOM.renderToString(props.component) : '';
   const state = props.store.getState();
-  return (<html>
-    <head />
+  return (
+    <html>
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
+    </head>
     <body>
-      <div dangerouslySetInnerHTML={{ __html: content }} id="app" />
-      <script dangerouslySetInnerHTML={{ __html: `window.App=${serialize(state)};` }} />
-      {renderJsFiles().map((file, key) => {
-        return <script key={key} type="text/javascript" src={file} />;
-      })}
+    <div dangerouslySetInnerHTML={{ __html: content }} id="app" />
+    <script dangerouslySetInnerHTML={{ __html: `window.App=${serialize(state)};` }} />
+    {renderJsFiles().map((file, key) => {
+      return <script key={key} type="text/javascript" src={file} />;
+    })}
     </body>
-  </html>);
+    </html>
+  );
 };
 
 Html.propTypes = {

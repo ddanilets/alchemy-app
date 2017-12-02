@@ -30,7 +30,7 @@ class Ingridient extends React.PureComponent {
     const { isDragging, connectDragSource } = this.props;
     return connectDragSource(
       <div
-        className={`ingridient ${this.props.id} ${isDragging ? 'dragging' : ''}`}
+        className={`ingridient ${this.props.imageName} ${isDragging ? 'dragging' : ''}`}
         style={{ opacity: isDragging ? 0 : 1 }}
       >
         <div className="text">

@@ -24,13 +24,34 @@ class Couldron extends React.PureComponent {
     this.props.cookPotion();
   }
 
+  renderContents() {
+    return (
+      <div className="contents">
+        {this.props.data.contents.map((el) => {
+          return (
+            <div className="ingridient">{el.name}</div>
+          );
+        })}
+      </div>
+    );
+  }
+
   render() {
     const { canDrop, isOver, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
     return connectDropTarget(
       <div className={"couldron-wrapper"}>
         <div className="couldron-inline-wrapper" >
-          <div className={`couldron ${this.props.couldronType} ${isActive ? 'drop' : ''}`} />
+          <div className={`couldron ${this.props.couldronType} ${isActive ? 'drop' : ''}`}>
+            {this.renderContents()}
+            <div className="bubble bubble-small-1" />
+            <div className="bubble bubble-small-2" />
+            <div className="bubble bubble-small-3" />
+            <div className="bubble bubble-small-4" />
+            <div className="bubble bubble-medium-1" />
+            <div className="bubble bubble-medium-2" />
+            <div className="bubble bubble-medium-3" />
+          </div>
         </div>
         <button onClick={this.cookPotion}>Cook!</button>
       </div>
@@ -38,4 +59,9 @@ class Couldron extends React.PureComponent {
   }
 }
 
-export default connect(null, { cookPotion })(Couldron);
+export default connect((state) => {
+  console.log(state);
+  return {
+    data: state.game.couldron,
+  };
+}, { cookPotion })(Couldron);

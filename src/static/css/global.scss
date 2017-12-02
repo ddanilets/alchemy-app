@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
 body,html{
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 10px;
 }
 *:focus{
@@ -23,4 +25,17 @@ body,html{
 
 .wrapper-sm {
   max-width: 60rem;
+}
+
+button {
+  font-family: 'Samplino', sans-serif;
+  background: url('/static/images/btn.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 0;
+  padding: 12px 55px;
+  user-select: none;
+  font-size: 20px;
+  cursor: pointer;
 }

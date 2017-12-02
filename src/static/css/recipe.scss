@@ -1,15 +1,158 @@
+@import "recipe-keyframes";
+
 .recipe-book {
   flex: 100% 0 0;
   position: relative;
 
+  button {
+    margin-top: 20px;
+    padding: 10px 40px;
+  }
+
   .recipes {
+    user-select: none;
+    cursor: default;
     width: 500px;
     height: 600px;
+    font-size: 25px;
     position: absolute;
     left: -550px;
-    border: 1px solid black;
-    background-color: #e9d0a3;
+    border: 2px solid black;
+    background: url('/static/images/ScrollMid.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 10px;
-    padding: 10px;
+    padding: 150px 50px 100px 50px;
+    overflow: auto;
+    -webkit-animation: scroll 1s linear; /* Safari 4+ */
+    -moz-animation: scroll 1s linear; /* Fx 5+ */
+    -o-animation: scroll 1s linear; /* Opera 12+ */
+    animation: scroll 1s linear; /* IE 10+, Fx 29+ */
+
+    .recipe {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      .ingridient {
+        .image-wrapper {
+          flex: 75% 0 0;
+
+          .image {
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto -15px 0;
+
+            &.water {
+              background: url('/static/images/water.png');
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+
+            &.fire {
+              background: url('/static/images/fire.png');
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+
+            &.ground {
+              background: url('/static/images/ground.png');
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+        }
+
+        .name {
+          margin-right: 8px;
+        }
+
+        .plus {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  
+  .recipes-bottom {
+    width: 555px;
+    height: 155px;
+    position: absolute;
+    left: -580px;
+    top: 550px;
+    background: url('/static/images/ScrollBot.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-animation: scroll-bottom 1s linear; /* Safari 4+ */
+    -moz-animation: scroll-bottom 1s linear; /* Fx 5+ */
+    -o-animation: scroll-bottom 1s linear; /* Opera 12+ */
+    animation: scroll-bottom 1s linear; /* IE 10+, Fx 29+ */
+
+    .cross-icon {
+      height: 50px;
+      width: 50px;
+      background: url('/static/images/Cross.png');
+      position: absolute;
+      bottom: 50px;
+      right: 130px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+  }
+
+  .recipes-top {
+    width: 555px;
+    height: 155px;
+    position: absolute;
+    left: -580px;
+    top: -5px;
+    background: url('/static/images/ScrollTop.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .input-wrapper {
+      height: 50px;
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+
+      input {
+        height: 25px;
+        width: 300px;
+        font-size: 25px;
+        margin-left: 60px;
+        background: none;
+        box-shadow: none;
+        border: 0;
+        border-bottom: #856223 solid 3px;
+        padding-left: 10px;
+      }
+
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        content: '';
+        background: url('/static/images/lypa.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
   }
 }

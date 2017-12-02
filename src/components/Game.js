@@ -7,12 +7,13 @@ import Hero from './Hero';
 class Game extends React.PureComponent {
 
   render() {
+    const shouldMirror = this.props.enemy.id === this.props.self.id ? 'mirror' : '';
     return (
       <DragDropContextProvider backend={HTML5Backend}>
         <div className="game">
           <div className="panel">
             <Hero hero={this.props.enemy} />
-            <Hero hero={this.props.self} />
+            <Hero hero={this.props.self} mirror={shouldMirror} />
           </div>
           <Sidebar />
         </div>

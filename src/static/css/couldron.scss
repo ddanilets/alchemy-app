@@ -1,3 +1,25 @@
+@keyframes bubble-small {
+  0% {
+    top: 65px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-medium {
+  0% {
+    top: 50px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
 .couldron-wrapper {
   display: flex;
   justify-content: center;
@@ -9,13 +31,108 @@
     .couldron {
       height: 300px;
       width: 300px;
-      background-color: black;
+      background: url('/static/images/Cauldron.png');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       margin: 30px auto;
+      position: relative;
+
+      .contents {
+        position: absolute;
+        left: 60px;
+        top: 100px;
+        font-size: 18px;
+        color: white;
+      }
+
+      .bubble {
+        position: absolute;
+
+
+        &.bubble-small-1 {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #71e771;
+          left: 70px;
+          top: 65px;
+          animation: 3s bubble-small infinite linear;
+          animation-delay: 0s;
+        }
+
+        &.bubble-small-2 {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #71e771;
+          left: 90px;
+          top: 65px;
+          animation: 3s bubble-small infinite linear;
+          animation-delay: 2s;
+        }
+
+        &.bubble-small-3 {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #71e771;
+          left: 110px;
+          top: 65px;
+          animation: 3s bubble-small infinite linear;
+          animation-delay: 3s;
+        }
+
+        &.bubble-small-4 {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #71e771;
+          left: 130px;
+          top: 65px;
+          animation: 3s bubble-small infinite linear;
+          animation-delay: 1.5s;
+        }
+
+        &.bubble-medium-1 {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #71e771;
+          left: 80px;
+          top: 50px;
+          animation: 4s bubble-small infinite linear;
+          animation-delay: 1s;
+        }
+
+        &.bubble-medium-2 {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #71e771;
+          left: 160px;
+          top: 50px;
+          animation: 4s bubble-medium infinite linear;
+          animation-delay: 2s;
+        }
+
+        &.bubble-medium-3 {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #71e771;
+          left: 211px;
+          top: 50px;
+          animation: 4s bubble-medium infinite linear;
+          animation-delay: 0s;
+        }
+      }
     }
   }
 
 
   button{
     margin-bottom: 20px;
+    padding: 8px 60px;
   }
 }
