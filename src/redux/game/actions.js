@@ -73,9 +73,9 @@ export function endTurn() {
       });
     }).then((data) => {
       if (data.self.currentHp < 1) {
-        push('/defeat');
+        dispatch(push('/defeat'));
       } else if (data.enemy.currentHp < 1) {
-        push('/victory');
+        dispatch(push('/victory'));
       }
       dispatch({ type: constants.END_TURN, payload: data });
     }).catch((e) => {
