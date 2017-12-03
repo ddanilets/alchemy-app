@@ -36,9 +36,12 @@ export function applyEffect(effect, caster, opponent) {
     target.shouldMirror = false;
     applyEffect(effect, opponent, caster);
   }
+  console.log(effect.getType(target));
   switch (effect.getType(target)) {
     case effectTypes.HEAL:
+      console.log(target.currentHp);
       target.currentHp += effect.power;
+      console.log(target.currentHp);
       break;
     case effectTypes.PURE_DMG:
       target.currentHp -= effect.power * caster.multiplier;
@@ -48,7 +51,7 @@ export function applyEffect(effect, caster, opponent) {
     case effectTypes.LIFESTEAL:
     case effectTypes.HOT:
       target.modifiers =
-        addModifier(target, { id: effect.type, power: effect.power, duration: effect.duration });
+        addModifier(target, { id: effect.getType(target), power: effect.power, duration: effect.duration });
       break;
     case effectTypes.ARMOR_UP:
       target.armor += effect.power;
@@ -113,6 +116,7 @@ export function applyEffect(effect, caster, opponent) {
 }
 
 export function applyHeroEffect(target, opponent) {
+  console.log(target);
   target.modifiers = target.modifiers.map((modifier) => {
     if (modifier.duration !== 0) {
       switch (modifier.id) {
@@ -137,4 +141,6 @@ export function applyHeroEffect(target, opponent) {
   }).filter((el) => {
     return el.duration > 0;
   });
+  console.log(target);
+
 }

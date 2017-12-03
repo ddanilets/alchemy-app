@@ -72,6 +72,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         ...payload,
+        couldron: {
+          ...state.couldron,
+          contents: [],
+        },
+        playedPotions: [],
         canEndTurn: true,
       };
     }
