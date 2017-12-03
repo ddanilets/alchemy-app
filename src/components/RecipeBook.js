@@ -85,7 +85,7 @@ class RecipeBook extends React.PureComponent {
   render() {
     return (
       <div className="recipe-book">
-        <button onClick={this.toggleBook}>Recipes</button>
+        <button onClick={this.toggleBook}>Рецепты</button>
         {
           this.state.isBookOpened &&
             <div>
