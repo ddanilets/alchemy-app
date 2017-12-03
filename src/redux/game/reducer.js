@@ -99,6 +99,18 @@ export default function (state = initialState, action) {
         recipes: payload.recipes,
       };
     }
+    case constants.ENABLE_GAME_INIT: {
+      return {
+        ...state,
+        canInitGame: true,
+      };
+    }
+    case constants.DISABLE_GAME_INIT: {
+      return {
+        ...state,
+        canInitGame: false,
+      };
+    }
     default: {
       return state;
     }

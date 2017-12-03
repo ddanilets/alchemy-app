@@ -23,3 +23,80 @@ $cell-bg: rgba(59, 31, 65, 0.58);
     }
   }
 }
+.fractions-container {
+  width: 100vw;
+  height: 100vh;
+  background: url('/static/images/back_menu.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .fraction {
+    cursor: pointer;
+    width: 300px;
+    height: 600px;
+    background: url('/static/images/border.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .fraction-image {
+      width: 300px;
+      height: 300px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &.elf {
+        background: url('/static/images/elve_ico.png');
+        width: 377px;
+        height: 392px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      &.orc {
+        background: url('/static/images/orc_ico.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      &.human {
+        width: 385px;
+        height: 301px;
+        margin-left: -50px;
+        background: url('/static/images/human_ico.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      &.alien {
+        width: 385px;
+        background: url('/static/images/alien_ico.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+    .fraction-description {
+      padding: 20px;
+      color: white;
+      font-size: 19px;
+
+      &.elf {
+        margin-top: -100px;
+      }
+
+      &.orc {
+        font-size: 18px;
+      }
+    }
+  }
+}

@@ -1,24 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createGame } from '../redux/game/actions';
-import fraction from './fractions';
+import fractions from './fractions';
 
 class Intro extends React.PureComponent {
   constructor() {
     super();
+
+    this.createGame = ::this.createGame;
+    this.renderFraction = ::this.renderFraction;
   }
 
   createGame(id) {
-    this.props.createGame(fraction.filter((el) => {
+    this.props.createGame(fractions.filter((el) => {
       return el.id === id;
     })[0]);
   }
+
+  renderFraction(fraction, key) {
+    return (
+      <div className={`fraction ${fraction.imageName}`} key={key} onClick={() => {
+        this.createGame(fraction.id);
+      }}
+      >
+        <div className={`fraction-image ${fraction.imageName}`} />
+        <div className={`fraction-description ${fraction.imageName}`}>{fraction.description}</div>
+      </div>
+    );
+  }
+
   render() {
     return (
-      <div className="fractions">
-        {fraction.map((el, key) => {
-          return <div key={key} className="fraction" onClick={() => { this.createGame(el.id); }}>{el.id}</div>;
-        })}
+      <div className="fractions-container">
+        {fractions.map(this.renderFraction)}
       </div>
     );
   }

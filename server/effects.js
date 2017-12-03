@@ -47,6 +47,7 @@ export function applyEffect(effect, caster, opponent) {
           return;
         } else {
           target.armor -= effect.power * caster.multiplier;
+          return;
         }
       }
       target.currentHp -= effect.power * caster.multiplier;

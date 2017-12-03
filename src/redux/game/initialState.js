@@ -1,9 +1,9 @@
 export default {
-  potions: [],
   ingridients: [],
   self: {
     ingridients: [],
   },
+  potions: [],
   enemy: {},
   couldron: {
     name: 'Classic',
@@ -22,7 +22,7 @@ export default {
     player1: {},
     player2: {},
   },
-
+  canInitGame: true,
 };
 
 const humanRecipes = [

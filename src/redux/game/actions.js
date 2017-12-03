@@ -21,6 +21,10 @@ export function cookPotion() {
 
 export function init() {
   return (dispatch, getState) => {
+    if (!getState().game.canInitGame) {
+      return;
+    }
+    dispatch({ type: constants.DISABLE_GAME_INIT });
     const state = getState().game;
     const playerId = uuid.v4();
 
@@ -33,12 +37,14 @@ export function init() {
             imageName: state.selectedFraction.imageName,
             fraction: state.selectedFraction.id,
             currentHp: state.selectedFraction.health,
+            armor: state.selectedFraction.armor || 0,
           },
         }).end((err, res) => {
           resolve(res.body);
         });
     }).then((data) => {
       dispatch({ type: constants.GAME_INIT, payload: data });
+      dispatch({ type: constants.ENABLE_GAME_INIT });
       dispatch(push('/play'));
     });
   };

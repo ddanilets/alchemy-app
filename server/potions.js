@@ -345,7 +345,7 @@ class PotionList {
           },
           {
             getType: () => effectTypes.DOT_DMG,
-            target: targets.SELF,
+            target: targets.ENEMY,
             power: 5,
             duration: 2,
           },

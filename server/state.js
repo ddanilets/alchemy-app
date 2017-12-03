@@ -28,7 +28,7 @@ class State {
         maxTime: 60,
         maxHp: player.currentHp,
         multiplier: 1,
-        armor: 0,
+        armor: player.armor,
         maxInventorySlots: {
           value: effectTypes.DEFAULT_INGRIDIENTS_SLOTS,
           left: 0,
@@ -123,7 +123,7 @@ class State {
       maxTime: 60,
       multiplier: 1,
       maxHp: player.currentHp,
-      armor: 0,
+      armor: player.armor,
       maxInventorySlots: {
         value: effectTypes.DEFAULT_INGRIDIENTS_SLOTS,
         left: 0,

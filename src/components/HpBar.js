@@ -1,8 +1,8 @@
 import React from 'react';
 
 class HpBar extends React.PureComponent {
-  getHpWidth() {
-    return `${485 * (this.props.currentHp / this.props.maxHp)}px`;
+  getHpWidth(scale) {
+    return `${485 * (scale / (this.props.maxHp + this.props.armor))}px`;
   }
 
   render() {
@@ -10,7 +10,10 @@ class HpBar extends React.PureComponent {
       return (
         <div className={`hp-bar ${this.props.className}`}>
           <div className="hp-row">
-            <div className="hp-row-inner" style={{ width: this.getHpWidth() }} />
+            <div className="hp-row-inner">
+              <div className="line" style={{ width: this.getHpWidth(this.props.currentHp) }} />
+              <div className="line armor" style={{ width: this.getHpWidth(this.props.armor) }} />
+            </div>
           </div>
         </div>
       );

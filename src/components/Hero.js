@@ -33,6 +33,7 @@ class Hero extends React.PureComponent {
         <HpBar
           currentHp={this.props.hero.currentHp}
           maxHp={this.props.hero.maxHp}
+          armor={this.props.hero.armor}
           className={this.props.displayButton ? 'bottom' : 'top'}
         />
         <div className={`hero-image ${this.props.hero.imageName} ${this.props.mirror}`} />
@@ -52,8 +53,8 @@ class Hero extends React.PureComponent {
           </button>
         }
         <div className={this.props.displayButton ? ' effects bottom' : 'effects   top'}>
-          {this.props.potions.map((el) => {
-            return stringsMapping(el);
+          {this.props.potions.map((el, key) => {
+            return <div key={key}>{stringsMapping(el)}</div>;
           })}
         </div>
 
