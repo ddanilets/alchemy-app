@@ -23,6 +23,10 @@ server.use('/static', express.static(`${__dirname}/static`));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use('/api', router);
 
+server.get('/', (req, res) => {
+  res.redirect('/start', 302);
+});
+
 server.use((req, res) => {
   const memoryHistory = createHistory(req.originalUrl);
   const { store, history } = configureStore(memoryHistory);
