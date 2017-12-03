@@ -20,7 +20,7 @@ class Defeat extends React.PureComponent {
           Меню
         </button>
         <div className="title">
-          Поражение!
+          Победа!
         </div>
         <div className="loot-box" />
       </div>
