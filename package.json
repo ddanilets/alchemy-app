@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "PORT=8001 NODE_ENV='development' node entry.js & NODE_ENV='development' node webpack-dev-server.js",
     "build": "webpack --config webpack-production.config.js",
-    "start": "NODE_ENV='production' node monitor.js",
+    "start": "NODE_ENV='production' node entry.js",
     "lint": "eslint ./ --ext .js",
     "heroku-postbuild": "webpack --config webpack-production.config.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
