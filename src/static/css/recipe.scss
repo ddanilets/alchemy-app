@@ -33,172 +33,174 @@
       display: flex;
       flex-wrap: wrap;
       align-items: flex-end;
+      border-bottom: 1px solid black;
+      margin-bottom: 10px;
 
       .ingridient {
-        .image-wrapper {
-          flex: 75% 0 0;
-
-          .image {
-            display: block;
-            width: 50px;
-            height: 50px;
-            margin: 0 auto -15px 0;
-
-            &.fire {
-              background: url('/static/images/fire.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.water {
-              background: url('/static/images/water.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.ground {
-              background: url('/static/images/ground.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.air {
-              background: url('/static/images/air.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.alcohol {
-              background: url('/static/images/alcohol.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.arrow {
-              background: url('/static/images/arrow.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.battlecry {
-              background: url('/static/images/battlecry.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.coal {
-              background: url('/static/images/coal.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.crystal {
-              background: url('/static/images/crystal.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.dark-matter {
-              background: url('/static/images/dark-matter.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.dragon {
-              background: url('/static/images/dragon.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.leader {
-              background: url('/static/images/leader.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.leaf {
-              background: url('/static/images/leaf.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.metal {
-              background: url('/static/images/metal.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.meteorite {
-              background: url('/static/images/meteorite.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.moon-prism {
-              background: url('/static/images/moon-prism.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.nuke {
-              background: url('/static/images/nuke.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.nuke {
-              background: url('/static/images/potato.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.sand {
-              background: url('/static/images/sand.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.shrooms {
-              background: url('/static/images/shrooms.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.star-energy {
-              background: url('/static/images/star-energy.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-
-            &.unicorn {
-              background: url('/static/images/unicorn.png');
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;
-            }
-          }
-        }
+        //.image-wrapper {
+        //  flex: 75% 0 0;
+        //
+        //  .image {
+        //    display: block;
+        //    width: 50px;
+        //    height: 50px;
+        //    margin: 0 auto -15px 0;
+        //
+        //    &.fire {
+        //      background: url('/static/images/fire.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.water {
+        //      background: url('/static/images/water.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.ground {
+        //      background: url('/static/images/ground.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.air {
+        //      background: url('/static/images/air.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.alcohol {
+        //      background: url('/static/images/alcohol.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.arrow {
+        //      background: url('/static/images/arrow.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.battlecry {
+        //      background: url('/static/images/battlecry.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.coal {
+        //      background: url('/static/images/coal.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.crystal {
+        //      background: url('/static/images/crystal.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.dark-matter {
+        //      background: url('/static/images/dark-matter.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.dragon {
+        //      background: url('/static/images/dragon.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.leader {
+        //      background: url('/static/images/leader.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.leaf {
+        //      background: url('/static/images/leaf.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.metal {
+        //      background: url('/static/images/metal.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.meteorite {
+        //      background: url('/static/images/meteorite.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.moon-prism {
+        //      background: url('/static/images/moon-prism.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.nuke {
+        //      background: url('/static/images/nuke.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.nuke {
+        //      background: url('/static/images/potato.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.sand {
+        //      background: url('/static/images/sand.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.shrooms {
+        //      background: url('/static/images/shrooms.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.star-energy {
+        //      background: url('/static/images/star-energy.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //
+        //    &.unicorn {
+        //      background: url('/static/images/unicorn.png');
+        //      background-size: cover;
+        //      background-repeat: no-repeat;
+        //      background-position: center;
+        //    }
+        //  }
+        //}
 
         .name {
           margin-right: 8px;
@@ -206,6 +208,31 @@
 
         .plus {
           margin-right: 8px;
+        }
+      }
+
+      &:hover {
+        .potion {
+          .description {
+            opacity: 1;
+          }
+        }
+      }
+
+      .potion {
+        margin-left: 8px;
+        position: relative;
+
+        .description {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 3;
+          width: 300px;
+          opacity: 0;
+          background: #b18a49;
+          transition: opacity 1s;
+          pointer-events: none;
         }
       }
     }

@@ -31,7 +31,7 @@ class Intro extends React.PureComponent {
 
   render() {
     return (
-      <div className="fractions-container">
+      <div className="fs-container fractions-container">
         {fractions.map(this.renderFraction)}
       </div>
     );

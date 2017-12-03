@@ -72,6 +72,11 @@ export function endTurn() {
         resolve(res.body);
       });
     }).then((data) => {
+      if (data.self.currentHp < 1) {
+        push('/defeat');
+      } else if (data.enemy.currentHp < 1) {
+        push('/victory');
+      }
       dispatch({ type: constants.END_TURN, payload: data });
     }).catch((e) => {
       console.log(e);

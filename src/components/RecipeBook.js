@@ -16,6 +16,7 @@ class RecipeBook extends React.PureComponent {
   toggleBook() {
     this.setState({
       isBookOpened: !this.state.isBookOpened,
+      search: null,
     });
   }
 
@@ -64,6 +65,7 @@ class RecipeBook extends React.PureComponent {
     return (
       <span className="potion" style={{ backgroundColor: getPotionColor(potion) }}>
       {potion.name}
+      <div className="description">{potion.description}</div>
       </span>
     );
   }
