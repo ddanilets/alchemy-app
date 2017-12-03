@@ -17,6 +17,7 @@ router.post('/init', (req, res) => {
           enemy: {
             currentHp: data.player2.currentHp,
             maxHp: data.player2.maxHp,
+            imageName: data.player2.imageName,
           },
           id: data.id,
         });
@@ -26,6 +27,7 @@ router.post('/init', (req, res) => {
           enemy: {
             currentHp: data.player1.currentHp,
             maxHp: data.player1.maxHp,
+            imageName: data.player1.imageName,
           },
           id: data.id,
         });
@@ -48,6 +50,7 @@ router.post('/end-turn', (req, res) => {
             currentHp: data.player2.currentHp,
             maxHp: data.player2.maxHp,
             modifiers: data.player2.modifiers,
+            imageName: data.player2.imageName,
           },
           usedPotions: data.usedPotions,
         });
@@ -58,6 +61,7 @@ router.post('/end-turn', (req, res) => {
             currentHp: data.player1.currentHp,
             maxHp: data.player1.maxHp,
             modifiers: data.player1.modifiers,
+            imageName: data.player1.imageName,
           },
           usedPotions: data.usedPotions,
         });

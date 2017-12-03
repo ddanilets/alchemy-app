@@ -133,6 +133,7 @@ export function applyHeroEffect(target, opponent) {
           break;
       }
     }
+    return modifier;
   }).filter((el) => {
     return el.duration > 0;
   });
