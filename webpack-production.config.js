@@ -27,9 +27,6 @@ const webpackConfig = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: require.resolve('babel-loader'),
-        query: {
-          presets: ['es2015', 'react', 'stage-0'],
-        },
       },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.ttf$/, loader: 'file-loader' },
