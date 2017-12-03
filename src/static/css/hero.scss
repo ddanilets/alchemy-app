@@ -85,5 +85,31 @@
     &.orc {
       background-image: url('/static/images/orc.png');
     }
+
+    &.human {
+      background-image: url('/static/images/human.png');
+    }
+
+    &.alien {
+      background-image: url('/static/images/alien.jpg');
+    }
+
+
+  }
+
+  .effects {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    bottom: 0;
+    color: white;
+    background: #aaa;
+    font-size: 16px;
+    opacity: 0.8;
+
+    &.top {
+    }
   }
 }

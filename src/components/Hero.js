@@ -3,6 +3,7 @@ import HpBar from './HpBar';
 import { DropTarget } from 'react-dnd';
 import { connect } from 'react-redux';
 import { endTurn } from '../redux/game/actions';
+import stringsMapping from './stringsMapping';
 
 const boxTarget = {
   drop() {
@@ -50,6 +51,12 @@ class Hero extends React.PureComponent {
             <span className="text">Закончить ход</span>
           </button>
         }
+        <div className={this.props.displayButton ? ' effects bottom' : 'effects   top'}>
+          {this.props.potions.map((el) => {
+            return stringsMapping(el);
+          })}
+        </div>
+
       </div>
     );
   }

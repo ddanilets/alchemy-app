@@ -15,6 +15,7 @@ router.post('/init', (req, res) => {
         res.send({
           self: data.player1,
           enemy: {
+            id: data.player2.id,
             currentHp: data.player2.currentHp,
             maxHp: data.player2.maxHp,
             imageName: data.player2.imageName,
@@ -25,6 +26,7 @@ router.post('/init', (req, res) => {
         res.send({
           self: data.player2,
           enemy: {
+            id: data.player1.id,
             currentHp: data.player1.currentHp,
             maxHp: data.player1.maxHp,
             imageName: data.player1.imageName,
@@ -47,6 +49,7 @@ router.post('/end-turn', (req, res) => {
         res.send({
           self: data.player1,
           enemy: {
+            id: data.player2.id,
             currentHp: data.player2.currentHp,
             maxHp: data.player2.maxHp,
             modifiers: data.player2.modifiers,
@@ -58,6 +61,7 @@ router.post('/end-turn', (req, res) => {
         res.send({
           self: data.player2,
           enemy: {
+            id: data.player1.id,
             currentHp: data.player1.currentHp,
             maxHp: data.player1.maxHp,
             modifiers: data.player1.modifiers,

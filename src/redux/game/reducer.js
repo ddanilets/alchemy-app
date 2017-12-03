@@ -92,6 +92,13 @@ export default function (state = initialState, action) {
         canEndTurn: true,
       };
     }
+    case constants.CREATE_GAME: {
+      return {
+        ...state,
+        selectedFraction: payload,
+        recipes: payload.recipes,
+      };
+    }
     default: {
       return state;
     }

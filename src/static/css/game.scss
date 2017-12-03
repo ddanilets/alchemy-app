@@ -7,5 +7,19 @@ $cell-bg: rgba(59, 31, 65, 0.58);
 
   .panel {
     flex: 70% 0 0;
+    position: relative;
+
+    .hero-separator {
+      position: absolute;
+      top: calc(50% - 10px);;
+      bottom: 0;
+      width: 105%;
+      z-index: 1;
+      height: 20px;
+      background: url('/static/images/line_heroes.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
   }
 }

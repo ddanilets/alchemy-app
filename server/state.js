@@ -4,6 +4,8 @@ import * as helpers from './helpers';
 import ingridients from './ingridients';
 import * as effectTypes from './effectTypes';
 import { applyHeroEffect } from './effects';
+import list from './potions';
+
 class State {
   constructor() {
     this._sessions = {};
@@ -195,11 +197,19 @@ class State {
     workSession.usedPotions = {
       player1: {
         id: players[0].id,
-        potions: players[0].potions,
+        potions: players[0].potions.map((el) => {
+          return { ...list.getPotion(el.id), effects: list.getPotion(el.id).effects.map((item) => {
+            return { ...item, type: item.getType() };
+          }) };
+        }),
       },
       player2: {
         id: players[1].id,
-        potions: players[1].potions,
+        potions: players[1].potions.map((el) => {
+          return { ...list.getPotion(el.id), effects: list.getPotion(el.id).effects.map((item) => {
+            return { ...item, type: item.getType() };
+          }) };
+        }),
       },
     };
     const player1CachedIngridients =

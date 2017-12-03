@@ -1,5 +1,6 @@
 import request from 'superagent';
 import uuid from 'node-uuid';
+import { push } from 'react-router-redux';
 import * as constants from './constants';
 
 const baseUrl = process.env.NODE_ENV === 'production' ? 'https://alchemy-battles.herokuapp.com' :
@@ -38,6 +39,7 @@ export function init() {
         });
     }).then((data) => {
       dispatch({ type: constants.GAME_INIT, payload: data });
+      dispatch(push('/play'));
     });
   };
 }
@@ -69,5 +71,12 @@ export function endTurn() {
       console.log(e);
       dispatch({ type: constants.ENABLE_END_TURN });
     });
+  };
+}
+
+export function createGame(payload) {
+  return (dispatch) => {
+    dispatch({ type: constants.CREATE_GAME, payload });
+    dispatch(init());
   };
 }

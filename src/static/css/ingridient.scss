@@ -343,6 +343,328 @@
           background-position: center;
         }
       }
+
+      &.ancestor {
+        background: url('/static/images/ancestor.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/ancestor.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.blood-opponent {
+        background: url('/static/images/blood-opponent.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/blood-opponent.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.blood-own {
+        background: url('/static/images/blood-own.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/blood-own.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.dust {
+        background: url('/static/images/dust.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/dust.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.fabric {
+        background: url('/static/images/fabric.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/fabric.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.glycerol {
+        background: url('/static/images/glycerol.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/glycerol.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.goo {
+        background: url('/static/images/goo.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/goo.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.holy-leaf {
+        background: url('/static/images/holy-leaf.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/holy-leaf.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.magic-dust {
+        background: url('/static/images/magic-dust.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/magic-dust.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.particle {
+        background: url('/static/images/particle.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/particle.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.petrol {
+        background: url('/static/images/petrol.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/petrol.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.powder {
+        background: url('/static/images/powder.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/powder.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.salary {
+        background: url('/static/images/salary.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/salary.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.salt {
+        background: url('/static/images/salt.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/salt.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.satellite {
+        background: url('/static/images/satellite.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/satellite.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.silk {
+        background: url('/static/images/silk.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/silk.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.singularity {
+        background: url('/static/images/singularity.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/singularity.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.skull {
+        background: url('/static/images/skull.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/skull.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.soul {
+        background: url('/static/images/soul.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/soul.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.stardust {
+        background: url('/static/images/stardust.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/stardust.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.time {
+        background: url('/static/images/time.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/time.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.wheat {
+        background: url('/static/images/wheat.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/wheat.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &.wolf {
+        background: url('/static/images/wolf.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/static/images/wolf.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
     }
 
     &:hover {

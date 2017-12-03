@@ -36,14 +36,19 @@ export function applyEffect(effect, caster, opponent) {
     target.shouldMirror = false;
     applyEffect(effect, opponent, caster);
   }
-  console.log(effect.getType(target));
   switch (effect.getType(target)) {
     case effectTypes.HEAL:
-      console.log(target.currentHp);
       target.currentHp += effect.power;
-      console.log(target.currentHp);
       break;
     case effectTypes.PURE_DMG:
+      if (target.armor > 0) {
+        if (target.armor < effect.power * caster.multiplier) {
+          target.armor = 0;
+          return;
+        } else {
+          target.armor -= effect.power * caster.multiplier;
+        }
+      }
       target.currentHp -= effect.power * caster.multiplier;
       break;
     case effectTypes.DOT_DMG:
@@ -116,7 +121,6 @@ export function applyEffect(effect, caster, opponent) {
 }
 
 export function applyHeroEffect(target, opponent) {
-  console.log(target);
   target.modifiers = target.modifiers.map((modifier) => {
     if (modifier.duration !== 0) {
       switch (modifier.id) {
@@ -141,6 +145,5 @@ export function applyHeroEffect(target, opponent) {
   }).filter((el) => {
     return el.duration > 0;
   });
-  console.log(target);
 
 }
