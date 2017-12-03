@@ -33,10 +33,10 @@ class Sidebar extends React.PureComponent {
     return (
       <div className="sidebar">
         <RecipeBook />
-        <Couldron couldronType={this.props.couldronType} />
         <div className="potion-list">
           {Sidebar.renderEmptiness(4, Sidebar.renderPotion, this.props.potions, 'potion-wrapper')}
         </div>
+        <Couldron couldronType={this.props.couldronType} />
         <div className="ingridient-list">
           {Sidebar.renderEmptiness(9,
             Sidebar.renderIngridient, this.props.ingridients, 'ingridient-wrapper')}

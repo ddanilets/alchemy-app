@@ -22,9 +22,10 @@ function removeModifier(hero, modifier) {
   });
 }
 
-export default function applyEffect(effect, caster, opponent) {
+export function applyEffect(effect, caster, opponent) {
   let target = getTarget(caster, opponent, effect);
-  if (target.isInvisible) {
+  if (target.isInvisibleOnce || target.isInvisible || (target.evasion && Math.random() < target.evasion)) {
+    target.isInvisibleOnce = false;
     return;
   }
   if (target.shouldRedirect) {
@@ -46,7 +47,8 @@ export default function applyEffect(effect, caster, opponent) {
     case effectTypes.PDOT_DMG:
     case effectTypes.LIFESTEAL:
     case effectTypes.HOT:
-      target.modifiers = addModifier(target, { id: effect.type, power: effect.power });
+      target.modifiers =
+        addModifier(target, { id: effect.type, power: effect.power, duration: effect.duration });
       break;
     case effectTypes.ARMOR_UP:
       target.armor += effect.power;
@@ -64,8 +66,10 @@ export default function applyEffect(effect, caster, opponent) {
       target.maxCouldronSlots.left = 2;
       break;
     case effectTypes.ANTI_DOT_HEAL:
+      target.modifiers = removeModifier(target, { id: effectTypes.DOT_DMG, power: effect.power });
+      break;
     case effectTypes.ANTI_PDOT_HEAL:
-      target.modifiers = removeModifier(target, { id: effect.type, power: effect.power });
+      target.modifiers = removeModifier(target, { id: effectTypes.PDOT_DMG, power: effect.power });
       break;
     case effectTypes.CLEAR_COULDRON:
       target.maxCouldronSlots.value = effectTypes.DEFAULT_COULDRON_SLOTS;
@@ -97,6 +101,9 @@ export default function applyEffect(effect, caster, opponent) {
     case effectTypes.EVASION:
       target.evasion += effect.power;
       break;
+    case effectTypes.EVASION_PERCENTAGE:
+      target.isInvisibleOnce = true;
+      break;
     case effectTypes.REDUCE_TIME:
       target.maxTime -= effect.power;
       break;
@@ -105,3 +112,28 @@ export default function applyEffect(effect, caster, opponent) {
   }
 }
 
+export function applyHeroEffect(target, opponent) {
+  target.modifiers = target.modifiers.map((modifier) => {
+    if (modifier.duration !== 0) {
+      switch (modifier.id) {
+        case effectTypes.DOT_DMG:
+        case effectTypes.PDOT_DMG:
+          target.currentHp -= modifier.power;
+          modifier.duration -= 1;
+          return modifier;
+        case effectTypes.LIFESTEAL:
+          target.currentHp += modifier.power;
+          opponent.currentHp -= modifier.power;
+          modifier.duration -= 1;
+          return modifier;
+        case effectTypes.HOT:
+          target.currentHp += modifier.power;
+          modifier.duration -= 1;
+          return modifier;
+          break;
+      }
+    }
+  }).filter((el) => {
+    return el.duration > 0;
+  });
+}

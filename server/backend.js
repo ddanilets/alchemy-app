@@ -67,8 +67,4 @@ router.post('/end-turn', (req, res) => {
   }, 1000);
 });
 
-setInterval(() => {
-  console.log(state);
-}, 5000);
-
 export default router;

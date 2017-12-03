@@ -37,3 +37,33 @@ export function init() {
     });
   };
 }
+
+export function playPotion(potion) {
+  return { type: constants.PLAY_POTION, payload: potion };
+}
+
+export function endTurn() {
+  return (dispatch, getState) => {
+    const state = getState().game;
+    dispatch({ type: constants.DISABLE_END_TURN, });
+    new Promise((resolve, reject) => {
+      request('POST', 'http://localhost:8000/api/end-turn')
+        .set('Content-Type', 'application/json')
+        .send({
+          player: {
+            id: state.self.id,
+            potions: state.playedPotions,
+            ingridients: state.self.ingridients,
+          },
+          id: state.id,
+        }).end((err, res) => {
+        resolve(res.body);
+      });
+    }).then((data) => {
+      dispatch({ type: constants.END_TURN, payload: data });
+    }).catch((e) => {
+      console.log(e);
+      dispatch({ type: constants.ENABLE_END_TURN });
+    });
+  };
+}

@@ -13,17 +13,17 @@ export default {
     {
       ingridients: [
         {
-          id: 1,
+          id: 0,
           name: 'Water',
           imageName: 'water',
         },
         {
-          id: 2,
+          id: 1,
           name: 'Fire',
           imageName: 'fire',
         },
         {
-          id: 3,
+          id: 2,
           name: 'Earth',
           imageName: 'ground',
         },
@@ -37,12 +37,12 @@ export default {
     {
       ingridients: [
         {
-          id: 1,
+          id: 0,
           name: 'Water',
           imageName: 'water',
         },
         {
-          id: 2,
+          id: 1,
           name: 'Fire',
           imageName: 'fire',
         },
@@ -59,4 +59,8 @@ export default {
     health: 100,
     imageName: 'orc',
   },
+  playedPotions: [],
+  canEndTurn: true,
+  usedPotions: [],
+
 };

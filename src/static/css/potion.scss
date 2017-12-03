@@ -2,12 +2,13 @@
   flex: 100% 0 0;
   display: flex;
   justify-content: center;
+  margin-bottom: 80px;
 
   .potion-wrapper {
     cursor: pointer;
     margin: 3px;
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     border-radius: 7px;
     border: 3px solid #682083;
     text-align: center;
@@ -21,17 +22,47 @@
     .potion {
       width: 100%;
       height: 100%;
+      position: relative;
 
       .text {
         margin-top: 2px;
         user-select: none;
         font-size: 18px;
         text-align: center;
+        position: absolute;
+        width: 90px;
+        height: 0;
+        left: -3px;
+        transition: height 1s;
+
+        &.red {
+          background-image: url('/static/images/flag_red.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &.blue {
+          background-image: url('/static/images/flag_blue.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        &.green {
+          background-image: url('/static/images/flag_green.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
       }
     }
 
 
     &:hover {
+      .text {
+        height: 100px;
+      }
       color: white;
     }
   }

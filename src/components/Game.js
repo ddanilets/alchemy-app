@@ -17,7 +17,7 @@ class Game extends React.PureComponent {
         <div className="game">
           <div className="panel">
             <Hero hero={this.props.enemy} />
-            <Hero hero={this.props.self} mirror={shouldMirror} />
+            <Hero hero={this.props.self} mirror={shouldMirror} displayButton={true} />
           </div>
           <Sidebar />
         </div>

@@ -41,6 +41,7 @@ class Couldron extends React.PureComponent {
     const isActive = canDrop && isOver;
     return connectDropTarget(
       <div className={"couldron-wrapper"}>
+        <button onClick={this.cookPotion}>Cook!</button>
         <div className="couldron-inline-wrapper" >
           <div className={`couldron ${this.props.couldronType} ${isActive ? 'drop' : ''}`}>
             {this.renderContents()}
@@ -53,7 +54,6 @@ class Couldron extends React.PureComponent {
             <div className="bubble bubble-medium-3" />
           </div>
         </div>
-        <button onClick={this.cookPotion}>Cook!</button>
       </div>
     );
   }

@@ -1,9 +1,9 @@
+import uuid from 'node-uuid';
 import * as constants from './constants';
 import initialState from './initialState';
 import { valueEqual } from '../../utils/utils';
 
 export default function (state = initialState, action) {
-  const newState = Object.assign({}, state);
   const { type, payload } = action;
   switch (type) {
     case constants.CHANGE_LANGUAGE: {
@@ -38,7 +38,7 @@ export default function (state = initialState, action) {
       if (mappedRecipes.length > 0) {
         return {
           ...state,
-          potions: state.potions.concat(mappedRecipes[0].potion),
+          potions: state.potions.concat({ ...mappedRecipes[0].potion, uniqueId: uuid.v4() }),
           couldron: {
             ...state.couldron,
             contents: [],
@@ -57,6 +57,34 @@ export default function (state = initialState, action) {
       return {
         ...state,
         ...payload,
+      };
+    }
+    case constants.PLAY_POTION: {
+      return {
+        ...state,
+        playedPotions: state.playedPotions.concat(payload),
+        potions: state.potions.filter((potion) => {
+          return potion.uniqueId !== payload.uniqueId;
+        }),
+      };
+    }
+    case constants.END_TURN: {
+      return {
+        ...state,
+        ...payload,
+        canEndTurn: true,
+      };
+    }
+    case constants.DISABLE_END_TURN: {
+      return {
+        ...state,
+        canEndTurn: false,
+      };
+    }
+    case constants.ENABLE_END_TURN: {
+      return {
+        ...state,
+        canEndTurn: true,
       };
     }
     default: {

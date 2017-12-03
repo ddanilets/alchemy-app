@@ -3,7 +3,7 @@ import * as constants from './constants';
 import * as helpers from './helpers';
 import ingridients from './ingridients';
 import * as effectTypes from './effectTypes';
-
+import { applyHeroEffect } from './effects';
 class State {
   constructor() {
     this._sessions = {};
@@ -49,7 +49,7 @@ class State {
     return sessionId;
   }
 
-  populateIngridients(player, quantity) {
+  populateIngridients(player, quantity, cachedIngridients) {
     let preparedIngridients = Object.values(ingridients).filter((el) => {
       return (el.fraction === player.fraction || el.fraction === 999);
     });
@@ -63,6 +63,30 @@ class State {
       }
       return el.level === 3 && droppedIngridients[el.id] < 1;
     });
+    if (cachedIngridients) {
+      preparedIngridients = preparedIngridients.filter((el) => {
+        return !cachedIngridients.map((item) => {
+          return item.id;
+        }).includes(el.id);
+      });
+      const deficite = quantity - cachedIngridients.length;
+      for (let i = 0; i < deficite; i++) {
+        const index = Math.floor(Math.random() * preparedIngridients.length);
+        const element = Object.assign({}, preparedIngridients[index]);
+        preparedIngridients = preparedIngridients.filter((el) => {
+          return el.id !== element.id;
+        });
+        cachedIngridients.push(element);
+        if (element.level > 1) {
+          if (typeof droppedIngridients[element.id] !== 'undefined') {
+            droppedIngridients[element.id] += 1;
+          } else {
+            droppedIngridients[element.id] = 1;
+          }
+        }
+      }
+      return { ingridients: cachedIngridients, droppedIngridients };
+    }
     const finalIngridients = new Array(quantity).fill(null).map(() => {
       const index = Math.floor(Math.random() * preparedIngridients.length);
       const element = Object.assign({}, preparedIngridients[index]);
@@ -141,8 +165,6 @@ class State {
 
   parsePayload(players, id) {
     const workSession = this._sessions[id];
-    workSession.player1.isInvisible = false;
-    workSession.player2.isInvisible = false;
     helpers.activateHeroPower(players[0], workSession);
     helpers.activateHeroPower(players[1], workSession);
     const potionsArray = [];
@@ -159,6 +181,12 @@ class State {
     potionsArray.forEach((el) => {
       el();
     });
+
+    applyHeroEffect(workSession.player1, workSession.player2);
+    applyHeroEffect(workSession.player2, workSession.player1);
+
+    workSession.player1.isInvisible = false;
+    workSession.player2.isInvisible = false;
     return this.createPayload(players, id);
   }
 
@@ -174,16 +202,20 @@ class State {
         potions: players[1].potions,
       },
     };
+    const player1CachedIngridients =
+      players[0].id === workSession.player1.id ? players[0].ingridients : players[1].ingridients;
+    const player2CachedIngridients =
+      players[0].id === workSession.player2.id ? players[0].ingridients : players[1].ingridients;
     const player1Ingridients = this.populateIngridients(workSession.player1,
-      workSession.player1.maxInventorySlots.value);
+      workSession.player1.maxInventorySlots.value, player1CachedIngridients);
     const player2Ingridients = this.populateIngridients(workSession.player2,
-      workSession.player2.maxInventorySlots.value);
+      workSession.player2.maxInventorySlots.value, player2CachedIngridients);
     workSession.player1.ingridients = player1Ingridients.ingridients;
     workSession.player1.droppedIngridients = player1Ingridients.droppedIngridients;
     workSession.player2.ingridients = player2Ingridients.ingridients;
     workSession.player2.droppedIngridients = player2Ingridients.droppedIngridients;
-    this.flushModifiers(workSession.player1);
-    this.flushModifiers(workSession.player2);
+    State.flushModifiers(workSession.player1);
+    State.flushModifiers(workSession.player2);
   }
 
   static flushModifiers(player) {
@@ -191,10 +223,10 @@ class State {
       --player.maxInventorySlots.left;
     }
     if (player.maxPotionSlots.left > 0) {
-      --player.maxInventorySlots;
+      --player.maxInventorySlots.left;
     }
     if (player.maxCouldronSlots.left > 0) {
-      --player.maxCouldronSlots;
+      --player.maxCouldronSlots.left;
     }
     player.isInvisible = false;
   }

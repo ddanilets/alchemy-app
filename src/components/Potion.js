@@ -1,5 +1,7 @@
 import React from 'react';
 import { DragSource } from 'react-dnd';
+import { connect } from 'react-redux';
+import { playPotion } from '../redux/game/actions';
 import { getPotionColor } from '../utils/utils';
 import Circle from '../static/svg/circle';
 import Thin from '../static/svg/thin';
@@ -8,7 +10,9 @@ import Triangle from '../static/svg/triangle';
 const boxSource = {
   beginDrag(props) {
     return {
-      dropItem: props.onDrop,
+      playPotion: props.playPotion,
+      id: props.id,
+      uniqueId: props.uniqueId,
     };
   },
 
@@ -17,7 +21,7 @@ const boxSource = {
     const dropResult = monitor.getDropResult();
 
     if (dropResult) {
-      alert(`You dropped ${item.name} into ${dropResult.name}!`); // eslint-disable-line no-alert
+      item.playPotion({ id: item.id, uniqueId: item.uniqueId });
     }
   },
 };
@@ -37,6 +41,15 @@ class Potion extends React.PureComponent {
     } else {
       this.icon = Triangle;
     }
+
+    const r2 = Math.random();
+    if (r2 <= 0.33) {
+      this.flag = 'red';
+    } else if (r <= 0.66) {
+      this.flag = 'blue';
+    } else {
+      this.flag = 'green';
+    }
   }
   render() {
     const { isDragging, connectDragSource } = this.props;
@@ -46,7 +59,7 @@ class Potion extends React.PureComponent {
         style={{ backgroundColor: getPotionColor(this.props), opacity: isDragging ? 0 : 1 }}
       >
         <this.icon color="#000" />
-        <div className="text">
+        <div className={`text ${this.flag}`}>
           {this.props.name}
         </div>
       </div>
@@ -55,4 +68,4 @@ class Potion extends React.PureComponent {
 }
 
 
-export default Potion;
+export default connect(null, { playPotion } )(Potion);

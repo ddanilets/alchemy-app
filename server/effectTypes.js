@@ -19,6 +19,7 @@ export const SLOT_REVEAL = 'effect/slot_reveal';
 export const MISSING_TURN = 'effect/skip_turn';
 export const HP_SACRIFICE = 'effect/sacrifice';
 export const EVASION = 'effect/evasion';
+export const EVASION_PERCENTAGE = 'effect/evasion_percentage';
 export const REDUCE_TIME = 'effect/time';
 export const DEFAULT_POTION_SLOTS = 4;
 export const DEFAULT_COULDRON_SLOTS = 5;
