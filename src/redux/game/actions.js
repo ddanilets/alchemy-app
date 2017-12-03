@@ -2,6 +2,10 @@ import request from 'superagent';
 import uuid from 'node-uuid';
 import * as constants from './constants';
 
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://alchemy-battles.herokuapp.com' :
+  'http://localhost:8000';
+
+
 export function changeLanguage(langauge) {
   return { type: constants.CHANGE_LANGUAGE, payload: langauge };
 }
@@ -20,7 +24,7 @@ export function init() {
     const playerId = uuid.v4();
 
     new Promise((resolve, reject) => {
-      request('POST', 'http://localhost:8000/api/init')
+      request('POST', `${baseUrl}/api/init`)
         .set('Content-Type', 'application/json')
         .send({
           player: {
@@ -47,7 +51,7 @@ export function endTurn() {
     const state = getState().game;
     dispatch({ type: constants.DISABLE_END_TURN, });
     new Promise((resolve, reject) => {
-      request('POST', 'http://localhost:8000/api/end-turn')
+      request('POST', `${baseUrl}/api/end-turn`)
         .set('Content-Type', 'application/json')
         .send({
           player: {
