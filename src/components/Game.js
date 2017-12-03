@@ -4,14 +4,9 @@ import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import Sidebar from './Sidebar';
 import Hero from './Hero';
-import { init } from '../redux/game/actions';
 import { SELF, ENEMY } from '../../server/targets';
 
 class Game extends React.PureComponent {
-  componentDidMount() {
-    this.props.init();
-  }
-
   getUsedPotions(enemy) {
     if (enemy) {
       if (this.props.usedPotions.player1.id === this.props.enemy.id) {
@@ -92,4 +87,4 @@ export default connect((state) => {
     self: state.game.self,
     usedPotions: state.game.usedPotions,
   };
-}, { init })(Game);
+})(Game);
