@@ -22,6 +22,7 @@ const Html = (props) => {
   return (
     <html>
     <head>
+      <meta name="viewport" content="width=1920" />
       <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
     </head>
     <body>
